@@ -1,2 +1,0 @@
-class OrderFood < ApplicationRecord
-end
