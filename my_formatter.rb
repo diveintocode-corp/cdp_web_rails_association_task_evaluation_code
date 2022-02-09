@@ -2,7 +2,7 @@ class MyFormatter
   RSpec::Core::Formatters.register self, :example_passed, :example_failed, :example_group_started, :start
   def initialize(output)
     @output = output
-    @n = 1
+    @n = 0
   end
 
   def start(notification)
@@ -26,7 +26,33 @@ class MyFormatter
   end
 
   def example_failed(notification)
-    @output << "- [ ] ❌ 適切にアソシエーションが組まれていること（#{@n} #{notification.example.description}）\n"
+    check_list = [
+      "addressableとのアソシエーション",
+      "orderとのアソシエーション",
+      "shopとのアソシエーション",
+      "order_foodとのアソシエーション",
+      "orderとのアソシエーション",
+      "addressとのアソシエーション",
+      "orderとのアソシエーション",
+      "shopとのアソシエーション",
+      "order_foodとのアソシエーション",
+      "orderとのアソシエーション",
+      "shopとのアソシエーション",
+      "order_foodとのアソシエーション",
+      "orderとのアソシエーション",
+      "shopとのアソシエーション",
+      "order_foodとのアソシエーション",
+      "orderとのアソシエーション",
+      "foodとのアソシエーション",
+      "orderとのアソシエーション",
+      "addressとのアソシエーション",
+      "customerとのアソシエーション",
+      "order_foodとのアソシエーション",
+      "foodとのアソシエーション",
+      "addressとのアソシエーション",
+      "foodとのアソシエーション",
+    ]
+    @output << "- [ ] ❌ #{check_list[@n]}\n"
     @n += 1
   end
 end
