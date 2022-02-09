@@ -24,8 +24,8 @@ class MyFormatter
     end
   end
 
+  n = 1
   def example_failed(notification)
-    n = 1
     @output << "- [ ] ❌ 適切にアソシエーションが組まれていること（#{n} #{notification.example.description}）\n"
     n += 1
   end
