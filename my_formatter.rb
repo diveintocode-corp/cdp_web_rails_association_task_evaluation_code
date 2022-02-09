@@ -25,6 +25,6 @@ class MyFormatter
   end
 
   def example_failed(notification)
-    @output << "- [ ] ❌ #{notification.group.description}\n"
+    @output << "- [ ] ❌ #{notification.example}\n"
   end
 end
