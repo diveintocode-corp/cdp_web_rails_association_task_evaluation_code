@@ -2,27 +2,7 @@ class MyFormatter
   RSpec::Core::Formatters.register self, :example_passed, :example_failed, :example_group_started, :start
   def initialize(output)
     @output = output
-    @n = 0
-  end
-
-  def start(notification)
-    @output << "---\ntitle: 課題評価のフィードバック\n---\n"
-  end
-
-  def example_passed(notification)
-    @output << "- ✅ #{notification.example.description}\n"
-  end
-
-  def example_group_started(notification)
-    if notification.group.to_s.count(':') == 4
-      @output << "# #{notification.group.description}\n"
-    elsif notification.group.to_s.count(':') == 8
-      @output << "### #{notification.group.description}\n"
-    end
-  end
-
-  def example_failed(notification)
-    check_list = [
+    @check_list = [
       "addressableとのアソシエーション",
       "orderとのアソシエーション",
       "shopとのアソシエーション",
@@ -48,7 +28,28 @@ class MyFormatter
       "addressとのアソシエーション",
       "foodとのアソシエーション",
     ]
-    @output << "- [ ] ❌ #{check_list[@n]}\n"
+    @n = 0
+  end
+
+  def start(notification)
+    @output << "---\ntitle: 課題評価のフィードバック\n---\n"
+  end
+
+  def example_passed(notification)
+    @output << "- ✅ #{@check_list[@n]}\n"
+    @n += 1
+  end
+
+  def example_group_started(notification)
+    if notification.group.to_s.count(':') == 4
+      @output << "# #{notification.group.description}\n"
+    elsif notification.group.to_s.count(':') == 8
+      @output << "### #{notification.group.description}\n"
+    end
+  end
+
+  def example_failed(notification)
+    @output << "- [ ] ❌ #{@check_list[@n]}\n"
     @n += 1
   end
 end
