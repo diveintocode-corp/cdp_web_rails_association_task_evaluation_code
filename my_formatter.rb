@@ -2,6 +2,7 @@ class MyFormatter
   RSpec::Core::Formatters.register self, :example_passed, :example_failed, :example_group_started, :start
   def initialize(output)
     @output = output
+    @n = 1
   end
 
   def start(notification)
@@ -24,7 +25,6 @@ class MyFormatter
     end
   end
 
-  n = 1
   def example_failed(notification)
     @output << "- [ ] ❌ 適切にアソシエーションが組まれていること（#{n} #{notification.example.description}）\n"
     n += 1
