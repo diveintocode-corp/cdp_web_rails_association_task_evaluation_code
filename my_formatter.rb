@@ -3,36 +3,36 @@ class MyFormatter
   def initialize(output)
     @output = output
     @check_list = [
-      "addressableとのアソシエーション",
-      "orderとのアソシエーション",
-      "shopとのアソシエーション",
-      "order_foodとのアソシエーション",
-      "orderとのアソシエーション",
-      "addressとのアソシエーション",
-      "orderとのアソシエーション",
-      "shopとのアソシエーション",
-      "order_foodとのアソシエーション",
-      "orderとのアソシエーション",
-      "shopとのアソシエーション",
-      "order_foodとのアソシエーション",
-      "orderとのアソシエーション",
-      "shopとのアソシエーション",
-      "order_foodとのアソシエーション",
-      "orderとのアソシエーション",
-      "foodとのアソシエーション",
-      "orderとのアソシエーション",
-      "addressとのアソシエーション",
-      "customerとのアソシエーション",
-      "order_foodとのアソシエーション",
-      "foodとのアソシエーション",
-      "addressとのアソシエーション",
-      "foodとのアソシエーション",
+      "Association with addressable",
+      "Association with order",
+      "Association with shop",
+      "Association with order_food",
+      "Association with order",
+      "Association with address",
+      "Association with order",
+      "Association with shop",
+      "Association with order_food",
+      "Association with order",
+      "Association with shop",
+      "Association with order_food",
+      "Association with order",
+      "Association with shop",
+      "Association with order_food",
+      "Association with order",
+      "Association with food",
+      "Association with order",
+      "Association with address",
+      "Association with customer",
+      "Association with order_food",
+      "Association with food",
+      "Association with address",
+      "association with food",
     ]
     @n = 0
   end
 
   def start(notification)
-    @output << "---\ntitle: 課題評価のフィードバック\n---\n"
+    @output << "---\ntitle: Feedback on the assignment\n---\n"
   end
 
   def example_passed(notification)
