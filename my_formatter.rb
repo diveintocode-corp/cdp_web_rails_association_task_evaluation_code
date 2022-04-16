@@ -1,5 +1,5 @@
 class MyFormatter
-  RSpec::Core::Formatters.register self, :example_passed, :example_failed, :example_group_started, :start
+  RSpec::Core::Formatters.register self, :example_passed, :example_failed, :example_group_started, :start, :stop
   def initialize(output)
     @output = output
     @check_list = [
@@ -51,5 +51,11 @@ class MyFormatter
   def example_failed(notification)
     @output << "- [ ] ❌ #{@check_list[@n]}\n"
     @n += 1
+  end
+  
+  def stop(notification)
+    if notification.examples.count == 0
+      @output << "## Evaluation could not be performed. Please check for syntax errors in your code.\n### Common syntax errors\n- Typos in code.\n- The `end` is missing."
+    end
   end
 end
